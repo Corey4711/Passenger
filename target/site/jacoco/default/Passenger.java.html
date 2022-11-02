@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Passenger.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Passanger</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Passenger.java</span></div><h1>Passenger.java</h1><pre class="source lang-java linenums">import java.util.UUID;
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Passenger.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Passanger</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Passenger.java</span></div><h1>Passenger.java</h1><pre class="source lang-java linenums">import java.util.ArrayList;
+import java.util.List;
 
 public class Passenger {
     Title title;
@@ -7,69 +8,49 @@ public class Passenger {
     String phone;
     int age;
 
-<span class="fc" id="L10">    public Passenger(Title title, String name, String id, String phone, int age){</span>
-<span class="fc" id="L11">        this.title = title;</span>
-<span class="fc" id="L12">        this.name  = name;</span>
-<span class="fc" id="L13">        this.id = id;</span>
-<span class="fc" id="L14">        this.phone = phone;</span>
-<span class="fc" id="L15">        this.age = age;</span>
-<span class="fc" id="L16">    }</span>
+<span class="fc" id="L11">    List&lt;Passenger&gt; TicketList= new ArrayList&lt;&gt;();</span>
 
-    public Title getTitle() {
-<span class="fc" id="L19">        return title;</span>
-    }
-    public String getName() {
-<span class="fc" id="L22">        return name;</span>
-    }
-    public String getID() {
-<span class="fc" id="L25">        return id;</span>
-    }
-    public String getPhone() {
-<span class="fc" id="L28">        return phone;</span>
-    }
-    public int getAge() {
-<span class="fc" id="L31">        return age;</span>
-    }
+<span class="fc" id="L13">    public Passenger(Title title, String name, String id, String phone, int age){</span>
+<span class="fc" id="L14">        this.title = title;</span>
+<span class="fc" id="L15">        this.name  = name;</span>
+<span class="fc" id="L16">        this.id = id;</span>
+<span class="fc" id="L17">        this.phone = phone;</span>
+<span class="fc" id="L18">        this.age = age;</span>
+<span class="fc" id="L19">    }</span>
 
-    public void setTitle(Title title) {
-<span class="fc bfc" id="L35" title="All 6 branches covered.">        if(title == title.Mr || title == title.Mrs || title == title.Ms){</span>
-<span class="fc" id="L36">            this.title = title;</span>
+    public void setPassenger(Title title, String name, String id, String phone, int age) {
+<span class="fc bfc" id="L22" title="All 6 branches covered.">        if(title == title.Mr || title == title.Mrs || title == title.Ms){</span>
+<span class="fc" id="L23">            this.title = title;</span>
         }
         else{
-<span class="fc" id="L39">            throw new IllegalArgumentException(&quot;Incorrect Title Prefex (&quot;+ title + &quot;) is not aloud&quot;);</span>
+<span class="fc" id="L26">            throw new IllegalArgumentException(&quot;Incorrect Title Prefix is not aloud&quot;);</span>
         }
-<span class="fc" id="L41">    }</span>
-    public void setName(String name) {
-<span class="fc bfc" id="L43" title="All 2 branches covered.">        if(name.length()&gt;=3){</span>
-<span class="fc" id="L44">            this.name = name;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if(name.length()&gt;=3){</span>
+<span class="fc" id="L29">            this.name = name;</span>
         }
         else{
-<span class="fc" id="L47">            throw new IllegalArgumentException(&quot;Name:&quot;+ name + &quot;) is too short&quot;);</span>
+<span class="fc" id="L32">            throw new IllegalArgumentException(&quot;Name is too short&quot;);</span>
         }
-<span class="fc" id="L49">    }</span>
-    public void setId(String id) {
-<span class="fc bfc" id="L51" title="All 2 branches covered.">        if(id.length()&gt;=10){</span>
-<span class="fc" id="L52">            this.id = id;</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if(id.length()&gt;=10){</span>
+<span class="fc" id="L35">            this.id = id;</span>
         }
         else{
-<span class="fc" id="L55">            throw new IllegalArgumentException(&quot;ID:&quot;+ id + &quot;) is too short&quot;);</span>
+<span class="fc" id="L38">            throw new IllegalArgumentException(&quot;ID is too short&quot;);</span>
         }
-<span class="fc" id="L57">    }</span>
-    public void setPhone(String phone) {
-<span class="fc bfc" id="L59" title="All 2 branches covered.">        if(phone.length()&gt;=10){</span>
-<span class="fc" id="L60">            this.phone = phone;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if(phone.length()&gt;=7){</span>
+<span class="fc" id="L41">            this.phone = phone;</span>
         }
         else{
-<span class="fc" id="L63">            throw new IllegalArgumentException(&quot;Phone:&quot;+ phone + &quot;) is too short&quot;);</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;Phone number is too short&quot;);</span>
         }
-<span class="fc" id="L65">    }</span>
-    public void setAge(int age) {
-<span class="fc bfc" id="L67" title="All 2 branches covered.">        if(age&gt;=16){</span>
-<span class="fc" id="L68">            this.age = age;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if(age&gt;=16){</span>
+<span class="fc" id="L47">            this.age = age;</span>
         }
         else{
-<span class="fc" id="L71">            throw new IllegalArgumentException(&quot;Age:&quot;+ age + &quot;) is too young&quot;);</span>
+<span class="fc" id="L50">            throw new IllegalArgumentException(&quot;Age is too young&quot;);</span>
         }
-<span class="fc" id="L73">    }</span>
+<span class="fc" id="L52">        TicketList.add(new Passenger(title, name, phone, id, age));</span>
+<span class="fc" id="L53">    }</span>
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
